@@ -33,14 +33,14 @@ print(f'{a} is common number')
 else:   
 print(f'{a} is small number')   
     
-while 예시1)    
-password=1432 
-lock = True 
-while lock: 
-putnum = int(input("password : "))  
-if password == putnum:  
-print("OPEN") 
-lock = False  
-else: 
-print("WORNG NUMBER") 
+while 예시1)        
+password=1432       
+lock = True   
+while lock:   
+putnum = int(input("password : "))    
+if password == putnum:    
+print("OPEN")   
+lock = False    
+else:   
+print("WORNG NUMBER")   
   
