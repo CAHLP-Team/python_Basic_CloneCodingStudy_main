@@ -22,18 +22,18 @@ input
 a = int(input("input num: ")) 
 b = a * a 
 print(b)  
-  
-if  
-예시 1) 
-a = int(input("input num: ")) 
-if a > 5: 
-print(f'{a} is big number') 
-elif a == 5:  
-print(f'{a} is common number')  
-else: 
-print(f'{a} is small number') 
-  
-while 예시1)  
+    
+if    
+예시 1)   
+a = int(input("input num: "))   
+if a > 5:   
+print(f'{a} is big number')   
+elif a == 5:    
+print(f'{a} is common number')    
+else:   
+print(f'{a} is small number')   
+    
+while 예시1)    
 password=1432 
 lock = True 
 while lock: 
