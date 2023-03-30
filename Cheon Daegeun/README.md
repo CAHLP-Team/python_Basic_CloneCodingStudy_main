@@ -1,4 +1,4 @@
-## JAVA Study TIL 2월 
+## python Study django 3월 
 
 ###  2023년 3월 30일 python 스터디 공부 
 | 날짜       | 제목               | 설명                                | 링크                                                                             |
