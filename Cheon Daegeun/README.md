@@ -1,13 +1,42 @@
-## JAVA Study TIL 2월 
+## python Study django 3월 
 
-###  2023년 2월 8일 자바 스터디 공부 
+###  2023년 3월 30일 python 스터디 공부 
 | 날짜       | 제목               | 설명                                | 링크                                                                             |
 | ---------- | ------------------ | ----------------------------------- | -------------------------------------------------------------------------------- |
-| 2023 | java 기초  | 1. 변수,형변환등을 공부함          |  |   |
+| 2023 | django  | 1. 간단한 사이트 view 제작          |  |   |
 
-### 2023년  자바 숫자와 문자 
+### 2023년  간단한 사이트 view 제작 
 
-* 자바에서 출력하는 방법 
-> 	System.out.println("테스트"); 
+from django.contrib import admin
+from django.urls import path, include
 
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('account/', include('accountapp.urls')),
+]
+
+_____________________________________
+
+from django.http import HttpResponse
+from django.shortcuts import render
+
+# Create your views here.
+
+
+def Hello(request):
+    return HttpResponse("Hello world!")
+
+________________________________
+
+from django.urls import path
+
+from accountapp.views import Hello
+
+app_name = "accountapp"
+
+
+
+urlpatterns = [
+    path('Hello/', Hello, name = 'Hello')
+]
 
