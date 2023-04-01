@@ -92,4 +92,28 @@ head 파일에서 style 수정, 글꼴을 바꿈
     </div>
 
 
+    - base.css 파일 만들기
+
+    .pragmatic_logo {
+    font-family: 'PT Serif', serif;
+}
+
+.pragmatic_footer_button {
+     font-size: .6rem;
+}
+
+.pragmatic_footer {
+     text-align:center; margin-top: 2rem;
+}
+
+.pragmatic_header {
+    text-align:center;
+    margin: 2rem 0;
+}
+
+- footer와 header에 있는 css 내용을 base.css 파일을 만들어 따로 작성하였다
+- px,em,rem,%
+- 1rem = 16px
+
+
 
