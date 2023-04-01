@@ -26,14 +26,8 @@ environ.Env.read_env(
     env.file= os.path.join(BASE_DIR, '.env')
 )
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
 env = 부분에서 오류 발생
@@ -45,5 +39,57 @@ DATABASE_URL=psql://urser:un-githubbedpasswod@127.0.0.1:8458/database
 SQLITE_URL=sqlite:///my-local-sqlite.db
 CACHE_URL=memcache://127.0.0.1:11211,127.0.0.1:11212,127.0.0.1:11213
 REDIS_URL=rediscache://127.0.0.1:6379/1?client_class=django_redis.client.DefaultClient&password=ungithubbed-secret
+
+2023 03 31 스터디
+
+<!DOCTYPE html>
+<html lang="ko">
+
+{% include 'head.html' %}
+
+<body>
+    {% include 'header.html' %}
+
+    <hr>
+
+    {% block content %}
+    {% endblock %}
+
+    <hr>
+
+    {% include 'footer.html' %}
+</body>
+</html>
+
+head 파일에서 style 수정, 글꼴을 바꿈
+
+- footer.html
+<div style="text-align:center; margin-top: 2rem;">
+
+        <div style="font-size: .6rem;">
+            <span>공지사항</span> |
+            <span>제휴문의</span> |
+            <span>서비스 소개</span>
+        </div>
+        <div style="margin-top: 1rem;">
+            <h6 style="margin-top: 1rem; font-family: 'PT Serif', serif;">Pragmatic</h6>
+        </div>
+
+    </div>
+
+-header.html
+<div style="text-align:center; margin: 2rem 0;">
+        <div>
+            <h1 style="font-family: 'PT Serif', serif;">Pragmatic</h1>
+        </div>
+        <div>
+            <span>nav1</span>
+            <span>nav2</span>
+            <span>nav3</span>
+            <span>nav4</span>
+        </div>
+
+    </div>
+
 
 
