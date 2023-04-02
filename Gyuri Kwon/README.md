@@ -115,5 +115,34 @@ head 파일에서 style 수정, 글꼴을 바꿈
 - px,em,rem,%
 - 1rem = 16px
 
+-- 23-04-02 스터디
+
+<div style="height: 20rem; background-color: #38df81; border-radius: 1rem; margin: 2rem;">
+        <h1>
+          testing
+        </h1>
+
+        <form action="/account/hello_world/" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary" value="POST">
+        </form>
+
+        <h1>
+            {{ text }}
+        </h1>
+
+
+def hello_world(request):
+
+    if request.method == "POST":
+        return render(request, 'accountapp/hello_world.html', context={'text': 'POST METHOD!!!!!!!'})
+    else:
+        return render(request, 'accountapp/hello_world.html', context={'text': 'GET METHOD!!!!!!!'})
+
+{% csrf_token %}
+= 장고에서 제공하는 보안 기능들 중 하나
+
+
+
 
 
