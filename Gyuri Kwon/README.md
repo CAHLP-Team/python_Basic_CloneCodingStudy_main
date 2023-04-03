@@ -115,5 +115,82 @@ head 파일에서 style 수정, 글꼴을 바꿈
 - px,em,rem,%
 - 1rem = 16px
 
+-- 23-04-02 스터디
+
+<div style="height: 20rem; background-color: #38df81; border-radius: 1rem; margin: 2rem;">
+        <h1>
+          testing
+        </h1>
+
+        <form action="/account/hello_world/" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary" value="POST">
+        </form>
+
+        <h1>
+            {{ text }}
+        </h1>
+
+
+def hello_world(request):
+
+    if request.method == "POST":
+        return render(request, 'accountapp/hello_world.html', context={'text': 'POST METHOD!!!!!!!'})
+    else:
+        return render(request, 'accountapp/hello_world.html', context={'text': 'GET METHOD!!!!!!!'})
+
+{% csrf_token %}
+= 장고에서 제공하는 보안 기능들 중 하나
+
+
+-- 23-04-03 스터디
+
+- hello_world.html
+
+<div style="border-radius: 1rem; margin: 2rem; text-align: center">
+        <h1 style="font-family: 'PT Serif, cursive;">
+            Hello World LIST!!
+        </h1>
+        <h1>
+          testing
+        </h1>
+
+        <form action="/account/hello_world/" method="post">
+            {% csrf_token %}
+            <div>
+                <input type="text" name="hello_world_input">
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary" value="POST">
+            </div>
+        </form>
+
+        {% if hello_world_list %}
+            {% for hello_world in hello_world_list %}
+            <h4>
+                {{ hello_world.text }}
+            </h4>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+
+- views.py
+
+def hello_world(request):
+
+    if request.method == "POST":
+
+        temp = request.POST.get('hello_world_input')
+
+        new_hello_world = HelloWorld()
+        new_hello_world.text = temp
+        new_hello_world.save()
+
+        return HttpResponseRedirect(reverse('accountapp:hello_world'))
+    else:
+        hello_world_list = HelloWorld.objects.all()
+        return render(request, 'accountapp/hello_world.html', context={'hello_world_list': hello_world_list})
+
 
 
