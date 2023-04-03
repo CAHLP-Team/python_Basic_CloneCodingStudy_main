@@ -726,4 +726,73 @@ class Migration(migrations.Migration):
         ),
     ]
 
+## python Study django 4월 
+
+###  2023년 4월 3일 python 스터디 공부 
+| 날짜       | 제목               | 설명                                | 링크                                                                             |
+| ---------- | ------------------ | ----------------------------------- | -------------------------------------------------------------------------------- |
+| 2023 | django  | 버튼 및 post, request 등         |  |   |
+
+### 2023년  버튼 및 post, request 등
+
+from django.http import HttpResponse
+from django.shortcuts import render
+
+from accountapp.models import HelloMo
+
+
+# Create your views here.
+
+
+def Hello(request):
+
+        if request.method == "POST":
+
+            temp = request.POST.get('Hello_input')
+
+            new_hello_world = HelloMo()
+            new_hello_world.text = temp
+            new_hello_world.save()
+
+
+            return render(request, 'accountapp/hello_world.html', context={'Hello_output': new_hello_world})
+        else:
+            return render(request, 'accountapp/hello_world.html', context={'text': 'POST METHOD!!'})
+
+____________________________________________________
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <div style="border-radius: 1rem; margin: 2rem; text-align: center">
+        <h1 style="font-family: 'Fasthand', cursive;">
+            Hello world List!
+        </h1>
+
+
+        <form action="/account/Hello/" method="post">
+            {% csrf_token %}
+            <div>
+                <input type="text" name="Hello_input">
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary" value="POST">
+            </div>
+
+        </form>
+
+        {% if Hello_output %}
+
+        <h1>
+            {{ Hello_output.text }}
+        </h1>
+        {% endif %}
+
+    </div>
+
+
+
+{% endblock %}
 
