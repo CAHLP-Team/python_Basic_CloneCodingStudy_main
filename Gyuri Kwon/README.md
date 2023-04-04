@@ -143,7 +143,7 @@ def hello_world(request):
 = 장고에서 제공하는 보안 기능들 중 하나
 
 
--- 23-04-03 스터디
+--- 23-04-03 스터디
 
 - hello_world.html
 
