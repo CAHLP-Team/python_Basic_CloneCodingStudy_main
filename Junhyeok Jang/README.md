@@ -97,5 +97,38 @@ for website in websites:
 if not websites.startswith("https://"): 
 website = f"https://{websites}" 
   
+2023년 4월 4일 파이썬 스터디 공부  
+날짜	제목	설명	링크  
+2023 장고스터디 view만들기
+
+view.py 안에 함수 선언 해주기  
+def hello_world(requset):  
+    return HttpResponse('Hello world')    
   
+메인 urls.py에 accountapp파일의 urls 인클루드 해주기  
+from django.contrib import admin  
+from django.urls import path, include  
+  
+urlpatterns = [  
+    path('admin/', admin.site.urls),  
+    path('account/', include('accountapp.urls')),  
+]    
+  
+accountapp 파일안에 urls.py 생성해주고  
+   
+from django.urls import path  
+  
+from accountapp.views import hello_world  
+  
+app_name = "accountapp"  
+    
+urlpatterns = [    
+   path('hello_world/',hello_world,name = 'hello_world')  
+    
+터미널에 
+python manage.py runserver 해주면 사이트에 Hello world 라고 뜨는것 확인가능  
+  
+
+    
+    
   
